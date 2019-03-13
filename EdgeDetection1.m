@@ -1,0 +1,10 @@
+clear all;
+clc;
+image = rgb2gray(imread('Peppers0.jpg'));
+mx = [-1 0 1;-2 0 2;-1 0 1];
+my = mx';
+gradX = conv2(image,mx,'same');
+gradY = conv2(image,my,'same');
+sobl_res = sqrt(gradX.^2 + gradY.^2);
+figure,imshow(sobl_res,[]);
+title('Sobel gradient');
